@@ -7,6 +7,7 @@ This is a portfolio/learning project, built one phase at a time. The full produc
 - PHP 8.3 / Laravel 12
 - PostgreSQL
 - Docker (Laravel Sail)
+- Tailwind CSS v4 (via Vite)
 
 # Local Development Setup
 
@@ -20,7 +21,8 @@ This is a portfolio/learning project, built one phase at a time. The full produc
 3. Run `php artisan key:generate` to generate the `APP_KEY`.
 4. Start the app and database containers: `./vendor/bin/sail up -d`.
 5. Run `./vendor/bin/sail artisan migrate` to create the database schema.
-6. Visit the app at [http://localhost](http://localhost).
+6. Install frontend dependencies and compile assets: `./vendor/bin/sail npm install && ./vendor/bin/sail npm run build` (needed for Tailwind-styled pages to render correctly; use `npm run dev` instead of `build` for live-reloading while working on views).
+7. Visit the app at [http://localhost](http://localhost).
 
 ### Port conflicts
 Sail exposes the app on host port `80` and PostgreSQL on host port `5432` by default. If either is already in use on your machine, set `APP_PORT` and/or `FORWARD_DB_PORT` in `.env` to free ports, then restart the containers:
